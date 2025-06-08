@@ -7,7 +7,12 @@ export const authOptions = {
       clientId: process.env.GOOGLE_CLIENT_ID ?? '',
       clientSecret: process.env.GOOGLE_CLIENT_SECRET ?? ''
     })
-  ]
+  ],
+  callbacks: {
+    async redirect({ url, baseUrl }: { url: string; baseUrl: string }) {
+      return `${baseUrl}/board`
+    }
+  }
 }
 const handler = NextAuth(authOptions)
 
