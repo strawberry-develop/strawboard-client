@@ -3,13 +3,11 @@
 import Logo from '@/components/common/Logo'
 import Navigation from '@/components/home/Navigation'
 import Link from 'next/link'
-import { signIn, useSession } from 'next-auth/react'
+import { signIn } from 'next-auth/react'
 import ArrowRightIcon from '../../public/images/arrow-right.svg'
 import GoogleIcon from '../../public/logos/google.svg'
 
 const Home = () => {
-  const { data } = useSession()
-
   return (
     <div className="flex flex-col min-h-screen bg-slate-50">
       <Navigation />
