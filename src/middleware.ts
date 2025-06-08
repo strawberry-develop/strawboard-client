@@ -11,11 +11,11 @@ export async function middleware(request: NextRequest) {
 
   if (request.nextUrl.pathname === '/') {
     if (token) {
-      return NextResponse.redirect(new URL('/app', request.url))
+      return NextResponse.redirect(new URL('/board', request.url))
     }
   }
 
-  if (request.nextUrl.pathname.startsWith('/app')) {
+  if (request.nextUrl.pathname.startsWith('/board')) {
     if (!token) {
       return NextResponse.redirect(new URL('/', request.url))
     }
