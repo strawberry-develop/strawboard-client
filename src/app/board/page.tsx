@@ -1,5 +1,8 @@
+import AddTask from '@/components/board/AddTask'
 import Header from '@/components/board/Header'
+import TaskItem from '@/components/board/TaskItem'
 import { IoMdAdd } from 'react-icons/io'
+
 const BoardPage = () => {
   return (
     <div className="flex flex-col min-h-screen bg-slate-50">
@@ -14,11 +17,13 @@ const BoardPage = () => {
                 <IoMdAdd className="w-5 h-5" />
               </button>
             </header>
-            <div className="flex flex-col gap-2">
-              <div className="w-full h-24 bg-gray-200 rounded-lg"></div>
-              <div className="w-full h-24 bg-gray-200 rounded-lg"></div>
-              <div className="w-full h-24 bg-gray-200 rounded-lg"></div>
-            </div>
+            <ul className="flex flex-col">
+              <AddTask />
+              {/* task items */}
+              {Array.from({ length: 3 }).map((_, index) => (
+                <TaskItem key={index} />
+              ))}
+            </ul>
           </div>
         </div>
       </section>
