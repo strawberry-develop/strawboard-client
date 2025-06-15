@@ -1,5 +1,6 @@
 import Logo from '@/components/common/Logo'
 import Link from 'next/link'
+import { signIn } from 'next-auth/react'
 
 export default function Navigation() {
   return (
@@ -16,12 +17,13 @@ export default function Navigation() {
           <Link href="/features" className="text-white/90 hover:text-white font-medium text-sm">
             주요 기능
           </Link>
-          <Link
-            href="/signin"
+          <button
+            type="button"
             className="bg-white text-blue-600 px-5 py-2 rounded-full hover:bg-blue-50 font-medium text-sm shadow hover:shadow-md"
+            onClick={() => signIn('google')}
           >
             로그인
-          </Link>
+          </button>
         </div>
       </div>
     </nav>
